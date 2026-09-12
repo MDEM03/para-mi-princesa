@@ -1,0 +1,684 @@
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #080612;
+    color: white;
+}
+
+
+/* ========================================
+   FONDO
+======================================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 70, 130, 0.12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(150, 50, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(255, 30, 100, 0.05), transparent 50%);
+    z-index: -2;
+}
+
+
+/* ========================================
+   ESTRELLAS
+======================================== */
+
+.estrellas {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,180,220,0.8) 1px, transparent 1px);
+
+    background-size:
+        120px 120px,
+        180px 180px,
+        250px 250px;
+
+    background-position:
+        10px 20px,
+        60px 80px,
+        130px 40px;
+
+    animation: moverEstrellas 20s linear infinite;
+}
+
+@keyframes moverEstrellas {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+
+/* ========================================
+   PANTALLAS
+======================================== */
+
+.pantalla {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(0.96);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+.contenido {
+    width: 90%;
+    max-width: 750px;
+
+    text-align: center;
+
+    padding: 50px 40px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 40px rgba(255, 50, 130, 0.08),
+        inset 0 0 30px rgba(255, 255, 255, 0.02);
+
+    backdrop-filter: blur(12px);
+
+    animation: aparecer 1s ease;
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   CORAZÓN PRINCIPAL
+======================================== */
+
+.corazon {
+    font-size: 80px;
+
+    margin-bottom: 20px;
+
+    animation: latido 1.5s infinite;
+}
+
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* ========================================
+   TÍTULOS
+======================================== */
+
+h1 {
+    font-size: 45px;
+
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #ff6fa3,
+        #ffb6d2,
+        #ff6fa3
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: brilloTexto 4s linear infinite;
+}
+
+
+h2 {
+    font-size: 38px;
+
+    margin: 20px 0 25px;
+
+    line-height: 1.25;
+
+    color: #ff9fc2;
+}
+
+
+@keyframes brilloTexto {
+
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+
+/* ========================================
+   TEXTOS
+======================================== */
+
+p {
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    color: #ded9e5;
+
+    margin: 0 auto 30px;
+
+    max-width: 650px;
+}
+
+
+.pequeno {
+    font-size: 20px;
+}
+
+
+.numero {
+    display: inline-block;
+
+    font-size: 18px;
+
+    letter-spacing: 5px;
+
+    color: #ff6f9f;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   BOTONES
+======================================== */
+
+button {
+    border: none;
+
+    padding: 15px 35px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f91,
+        #c83cff
+    );
+
+    box-shadow:
+        0 0 20px rgba(255, 70, 140, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+button:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 0 35px rgba(255, 70, 140, 0.6);
+}
+
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* ========================================
+   FINAL
+======================================== */
+
+.final {
+    border-color: rgba(255, 100, 170, 0.2);
+
+    box-shadow:
+        0 0 60px rgba(255, 50, 130, 0.15);
+}
+
+
+.manana {
+    font-size: 30px;
+
+    color: #ffb0cc;
+}
+
+
+.amor {
+    margin: 35px 0;
+
+    font-size: clamp(28px, 5vw, 55px);
+
+    font-weight: 900;
+
+    color: #ff5c9b;
+
+    text-shadow:
+        0 0 10px rgba(255, 70, 140, 0.7),
+        0 0 30px rgba(255, 70, 140, 0.5);
+
+    animation: amorLatido 1.8s infinite;
+}
+
+
+@keyframes amorLatido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+/* ========================================
+   CORAZONES FLOTANDO
+======================================== */
+
+.corazon-flotante {
+    position: fixed;
+
+    bottom: -50px;
+
+    font-size: 22px;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation: subirCorazon 6s linear forwards;
+}
+
+
+@keyframes subirCorazon {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(-50vh)
+            rotate(20deg)
+            scale(1);
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(-20deg)
+            scale(0.8);
+
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    .contenido {
+        width: 95%;
+
+        padding: 35px 22px;
+
+        border-radius: 25px;
+    }
+
+
+    h1 {
+        font-size: 32px;
+    }
+
+
+    h2 {
+        font-size: 27px;
+    }
+
+
+    p {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+
+    .corazon {
+        font-size: 65px;
+    }
+
+
+    button {
+        padding: 13px 28px;
+
+        font-size: 16px;
+    }
+
+
+    .manana {
+        font-size: 23px;
+    }
+    /* ========================================
+   PARTÍCULAS
+======================================== */
+
+.particula {
+    position: fixed;
+
+    bottom: -10px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 170, 210, 0.8);
+
+    box-shadow:
+        0 0 8px rgba(255, 120, 180, 0.8);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    animation: subirParticula linear forwards;
+}
+
+
+@keyframes subirParticula {
+
+    0% {
+        transform:
+            translateY(0)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            scale(1.2);
+
+        opacity: 0;
+    }
+}
+
+
+
+/* ========================================
+   MEJORAR ANIMACIÓN DE LAS RAZONES
+======================================== */
+
+.pantalla.activa .contenido {
+
+    animation:
+        aparecerContenido 0.9s ease forwards;
+}
+
+
+@keyframes aparecerContenido {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ========================================
+   BRILLO DEL CONTENEDOR
+======================================== */
+
+.pantalla.activa .contenido {
+
+    box-shadow:
+        0 0 40px rgba(255, 50, 130, 0.08),
+        0 0 100px rgba(255, 50, 130, 0.03),
+        inset 0 0 30px rgba(255, 255, 255, 0.02);
+}
+
+
+/* ========================================
+   BRILLO DE LOS NÚMEROS
+======================================== */
+
+.numero {
+
+    text-shadow:
+        0 0 10px rgba(255, 80, 150, 0.8);
+
+    animation:
+        brilloNumero 2s ease-in-out infinite;
+}
+
+
+@keyframes brilloNumero {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+
+        text-shadow:
+            0 0 20px rgba(255, 80, 150, 1);
+    }
+}
+
+
+/* ========================================
+   FINAL MÁS ESPECIAL
+======================================== */
+
+.final .amor {
+
+    animation:
+        amorLatido 1.8s infinite,
+        aparecerAmor 1.5s ease;
+}
+
+
+@keyframes aparecerAmor {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+}
+/* ========================================
+   CORAZONES DE TRANSICIÓN
+======================================== */
+
+.corazon-transicion {
+    position: fixed !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 26px;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%) scale(0.2);
+
+    animation: explosionCorazones 1.8s ease-out forwards;
+}
+
+
+@keyframes explosionCorazones {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.2)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+
+        transform:
+            translate(
+                calc(-50% + var(--destino-x)),
+                calc(-50% + var(--destino-y))
+            )
+            scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--destino-x)),
+                calc(-50% + var(--destino-y))
+            )
+            scale(0.4)
+            rotate(var(--rotacion));
+    }
+}
