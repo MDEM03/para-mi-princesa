@@ -335,8 +335,7 @@ button:active {
 .amor {
     margin: 35px auto;
 
-    /* Se adapta al tamaño de la pantalla */
-    font-size: clamp(24px, 5vw, 55px);
+    font-size: clamp(22px, 4.5vw, 55px);
 
     font-weight: 900;
 
@@ -346,16 +345,20 @@ button:active {
         0 0 10px rgba(255, 70, 140, 0.7),
         0 0 30px rgba(255, 70, 140, 0.5);
 
+    line-height: 1.25;
+
     animation: amorLatido 1.8s infinite;
 
-    /* Evita que se salga del cuadro */
+    width: 100%;
+    max-width: 100%;
+}
+
+.amor span {
+    display: block;
+
     max-width: 100%;
 
-    /* Permite que el texto se divida */
-    overflow-wrap: break-word;
-    word-break: break-word;
-
-    line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 
